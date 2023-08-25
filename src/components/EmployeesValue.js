@@ -1,5 +1,5 @@
 const EmployeesValue = () => {
-  return <div>EmployeesValue</div>;
+  return <div className="all__employees">All Employees</div>;
 };
 
 export default EmployeesValue;

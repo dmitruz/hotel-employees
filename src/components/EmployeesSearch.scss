@@ -1,0 +1,13 @@
+
+.list__header {
+display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
