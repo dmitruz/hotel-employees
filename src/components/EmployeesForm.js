@@ -24,7 +24,7 @@ const EmployeesForm = () => {
     e.preventDefault();
     dispatch(addEmployee({ name, number }));
     dispatch(changeName(''));
-    dispatch(changeNumber(0));
+    dispatch(changeNumber(''));
   };
 
   return (

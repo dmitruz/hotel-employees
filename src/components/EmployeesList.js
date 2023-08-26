@@ -1,15 +1,16 @@
+import './EmployeesList.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeEmployee } from '../store';
 
 const EmployeesList = () => {
   const dispatch = useDispatch();
   const { employees, name } = useSelector(({ form, employees: { data, searchTerm } }) => {
-    const filteredCars = data.filter(employee =>
+    const filteredEmployees = data.filter(employee =>
       employee.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
     return {
-      employees: filteredCars,
+      employees: filteredEmployees,
       name: form.name,
     };
   });
@@ -24,9 +25,9 @@ const EmployeesList = () => {
     return (
       <div key={employee.id} className={`panel ${bold && 'bold'}`}>
         <p>
-          {employee.name} - ${employee.cost}
+          {employee.name} - {employee.number}
         </p>
-        <button className="button is-danger" onClick={() => handleEmployeeDelete(employee)}>
+        <button className="button__delete" onClick={() => handleEmployeeDelete(employee)}>
           Delete
         </button>
       </div>
@@ -34,7 +35,7 @@ const EmployeesList = () => {
   });
 
   return (
-    <div className="car-list">
+    <div className="employees__list">
       {renderedEmployees}
       <hr />
     </div>

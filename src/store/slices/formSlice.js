@@ -18,7 +18,7 @@ const formSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(addEmployee, (state, action) => {
       state.name = '';
-      state.cost = 0;
+      state.number = '';
     });
   },
 });

@@ -1,0 +1,24 @@
+
+.employees__list {
+ padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-style: italic;
+  display: block;
+  width: 700px;
+}
+
+.button__delete {
+margin-left: 10px;
+background-color: red;
+}
+
+.panel {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

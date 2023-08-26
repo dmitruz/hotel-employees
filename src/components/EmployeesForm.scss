@@ -1,4 +1,18 @@
 
+
+.employees__header-text {
+    font-family: 'Exo 2', sans-serif;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.subtitle {
+    font-family: 'Exo 2', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    margin-left: 20px;
+}
 .form__panel {
     display: flex;
     flex-direction: column;
@@ -6,7 +20,9 @@
     align-items:flex-start;
     border: 1px solid black;
     margin-top: 15px;
-    padding: 15px;
+   
+    width: 700px;
+    background-color: wheat;
     
 }
 
@@ -17,13 +33,18 @@
     flex-direction: column;
     margin: 4px;
     padding: 6px;
+    margin-left: 16px;
 }
 
-.label > label {
+.label  {
+    font-family: 'Exo 2', sans-serif;
+    font-style: normal;
+    font-weight: 600;
     display: flex;
     align-items: center;
     width: 70px;
     margin-right: 10px;
+    
 }
 
 .field {
@@ -35,5 +56,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+        
 }
+
+input {
+    background-color:aliceblue;
+}
+
