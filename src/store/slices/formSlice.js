@@ -5,7 +5,8 @@ const formSlice = createSlice({
   name: 'form',
   initialState: {
     name: '',
-    number: 0,
+    number: '',
+    email: '',
   },
   reducers: {
     changeName(state, action) {
@@ -14,14 +15,18 @@ const formSlice = createSlice({
     changeNumber(state, action) {
       state.number = action.payload;
     },
+    changeEmail(state, action) {
+      state.email = action.payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(addEmployee, (state, action) => {
       state.name = '';
       state.number = '';
+      state.email = '';
     });
   },
 });
 
-export const { changeName, changeNumber } = formSlice.actions;
+export const { changeName, changeNumber, changeEmail } = formSlice.actions;
 export const formReducer = formSlice.reducer;

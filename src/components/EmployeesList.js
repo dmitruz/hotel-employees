@@ -24,9 +24,9 @@ const EmployeesList = () => {
 
     return (
       <div key={employee.id} className={`panel ${bold && 'bold'}`}>
-        <p>
-          {employee.name} - {employee.number}
-        </p>
+        <p className="employee__data"> Name: &nbsp; {employee.name}</p>
+        <p className="employee__data">Telephone: &nbsp;{employee.number}</p>
+        <p className="employee__data">Email: &nbsp; {employee.email}</p>
         <button className="button__delete" onClick={() => handleEmployeeDelete(employee)}>
           Delete
         </button>

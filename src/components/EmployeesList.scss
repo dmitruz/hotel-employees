@@ -10,6 +10,13 @@
   width: 700px;
 }
 
+.employee__data {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  padding: 0;
+}
+
 .button__delete {
 margin-left: 10px;
 background-color: red;
@@ -18,7 +25,8 @@ background-color: red;
 .panel {
   padding: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items:flex-start;
+  border: 1px solid black;
 }

@@ -1,13 +1,14 @@
 import './EmployeesForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeName, changeNumber, addEmployee } from '../store';
+import { changeName, changeNumber, changeEmail, addEmployee } from '../store';
 
 const EmployeesForm = () => {
   const dispatch = useDispatch();
-  const { name, number } = useSelector(state => {
+  const { name, number, email } = useSelector(state => {
     return {
       name: state.form.name,
       number: state.form.number,
+      email: state.form.email,
     };
   });
 
@@ -20,11 +21,16 @@ const EmployeesForm = () => {
     dispatch(changeNumber(employeeNumber));
   };
 
+  const handleEmailChange = e => {
+    dispatch(changeEmail(e.target.value));
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addEmployee({ name, number }));
+    dispatch(addEmployee({ name, number, email }));
     dispatch(changeName(''));
     dispatch(changeNumber(''));
+    dispatch(changeEmail(''));
   };
 
   return (
@@ -42,12 +48,11 @@ const EmployeesForm = () => {
             </div>
             <div className="field">
               <label className="label">Phone</label>
-              <input
-                className="input is-expanded"
-                value={number}
-                onChange={handleNumberChange}
-                type="number"
-              />
+              <input className="input is-expanded" value={number} onChange={handleNumberChange} />
+            </div>
+            <div className="field">
+              <label className="label">Email</label>
+              <input className="input is-expanded" value={email} onChange={handleEmailChange} />
             </div>
           </div>
           <div className="form__submit-btn">

@@ -14,6 +14,7 @@ const EmployeesSlice = createSlice({
       state.data.push({
         name: action.payload.name,
         number: action.payload.number,
+        email: action.payload.email,
         id: nanoid(),
       });
     },
