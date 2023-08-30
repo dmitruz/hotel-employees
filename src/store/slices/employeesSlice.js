@@ -15,6 +15,7 @@ const EmployeesSlice = createSlice({
         name: action.payload.name,
         number: action.payload.number,
         email: action.payload.email,
+        gender: action.payload.gender,
         id: nanoid(),
       });
     },
