@@ -1,5 +1,6 @@
 import './EmployeesForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { changeName, changeNumber, changeEmail, addEmployee } from '../store';
 import { changeGenderMale, changeGenderFemale } from '../store/slices/formSlice';
 
@@ -29,10 +30,10 @@ const EmployeesForm = () => {
   };
 
   const handleGenderMaleChange = e => {
-    dispatch(changeGenderMale(e.target));
+    dispatch(changeGenderMale(e.target.value));
   };
   const handleGenderFemaleChange = e => {
-    dispatch(changeGenderFemale(e.target));
+    dispatch(changeGenderFemale(e.target.value));
   };
 
   const handleSubmit = e => {
@@ -68,21 +69,23 @@ const EmployeesForm = () => {
             </div>
             <div className="field__gender">
               <label className="label">Gender</label>
+              <label htmlFor="male">Male</label>
               <input
                 type="radio"
-                name="Male"
+                name="male"
                 value={genderMale}
                 onChange={handleGenderMaleChange}
+                id="male"
               />
-              Male
+
+              <label htmlFor="female">Female</label>
               <input
-                checked={false}
                 type="radio"
-                name="female"
+                name="male"
                 value={genderFemale}
                 onChange={handleGenderFemaleChange}
+                id="female"
               />
-              Female
             </div>
           </div>
           <div className="form__submit-btn">
