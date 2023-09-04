@@ -67,3 +67,18 @@ input {
     background-color:aliceblue;
 }
 
+span::after {
+  padding-left: 5px;
+}
+
+.date-input {
+    margin-left: 10px;
+  &:invalid + span::after {
+    content: "✖";
+  }
+
+  &:valid + span::after {
+    content: "✓";
+  }
+}
+

@@ -87,6 +87,22 @@ const EmployeesForm = () => {
                 id="female"
               />
             </div>
+
+            <div className="field">
+              <label htmlFor="date">
+                Date of birth
+                <input
+                  className="date-input"
+                  type="date"
+                  id="date"
+                  name="trip-date"
+                  min="1923-01-01"
+                  required
+                  pattern="\d{4}-\d{2}-\d{2}"
+                />
+                <span className="validity"></span>
+              </label>
+            </div>
           </div>
           <div className="form__submit-btn">
             <button className="button is-link">Submit</button>
