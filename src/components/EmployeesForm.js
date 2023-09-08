@@ -89,8 +89,39 @@ const EmployeesForm = () => {
             </div>
 
             <div className="field">
-              <label htmlFor="date">
+              <label className="date__text" htmlFor="date">
                 Date of birth
+                <input
+                  className="date-input"
+                  type="date"
+                  id="date"
+                  name="trip-date"
+                  min="1923-01-01"
+                  required
+                  pattern="\d{4}-\d{2}-\d{2}"
+                />
+                <span className="validity"></span>
+              </label>
+            </div>
+            <div className="field">
+              <label className="label">Department</label>
+              <select name="department" id="department">
+                <option value="Front-office">Front-office</option>
+                <option value="Head-department">Head-department</option>
+                <option value="HR">HR-department</option>
+                <option value="Financial-department">Financial-department</option>
+                <option value="Housekeeping">Housekeeping</option>
+                <option value="Food and baverage">F&B</option>
+                <option value="Kitchen">Kitchen</option>
+              </select>
+            </div>
+            <div className="field">
+              <label className="label">Position</label>
+              <input className="input is-expanded" />
+            </div>
+            <div className="field">
+              <label className="date__text" htmlFor="date">
+                Date of start
                 <input
                   className="date-input"
                   type="date"
