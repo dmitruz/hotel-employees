@@ -7,8 +7,12 @@ const formSlice = createSlice({
     name: '',
     number: '',
     email: '',
-    genderMale: 'male',
-    genderFemale: 'female',
+    gender: 'male',
+
+    birth: '',
+    department: '',
+    position: '',
+    start: '',
   },
   reducers: {
     changeName(state, action) {
@@ -20,11 +24,20 @@ const formSlice = createSlice({
     changeEmail(state, action) {
       state.email = action.payload;
     },
-    changeGenderMale(state, action) {
-      state.genderMale = action.payload;
+    changeGender(state, action) {
+      state.gender = action.payload;
     },
-    changeGenderFemale(state, action) {
-      state.genderFemale = action.payload;
+    changeBirth(state, action) {
+      state.birth = action.payload;
+    },
+    changeDepartment(state, action) {
+      state.department = action.payload;
+    },
+    changePosition(state, action) {
+      state.position = action.payload;
+    },
+    changeStart(state, action) {
+      state.start = action.payload;
     },
   },
   extraReducers(builder) {
@@ -32,12 +45,23 @@ const formSlice = createSlice({
       state.name = '';
       state.number = '';
       state.email = '';
-      state.genderMale = '';
-      state.genderFemale = '';
+      state.gender = '';
+      state.birth = '';
+      state.department = '';
+      state.position = '';
+      state.start = '';
     });
   },
 });
 
-export const { changeName, changeNumber, changeEmail, changeGenderMale, changeGenderFemale } =
-  formSlice.actions;
+export const {
+  changeName,
+  changeNumber,
+  changeEmail,
+  changeGender,
+  changeBirth,
+  changeDepartment,
+  changePosition,
+  changeStart,
+} = formSlice.actions;
 export const formReducer = formSlice.reducer;

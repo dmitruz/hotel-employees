@@ -5,7 +5,17 @@ import {
   removeEmployee,
   changeSearchTerm,
 } from './slices/employeesSlice';
-import { formReducer, changeName, changeNumber, changeEmail } from './slices/formSlice';
+import {
+  formReducer,
+  changeName,
+  changeNumber,
+  changeEmail,
+  changeGender,
+  changeBirth,
+  changeDepartment,
+  changePosition,
+  changeStart,
+} from './slices/formSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,4 +24,17 @@ const store = configureStore({
   },
 });
 
-export { store, changeName, changeNumber, changeEmail, addEmployee, removeEmployee, changeSearchTerm };
+export {
+  store,
+  changeName,
+  changeNumber,
+  changeEmail,
+  changeBirth,
+  changeGender,
+  changePosition,
+  changeDepartment,
+  changeStart,
+  addEmployee,
+  removeEmployee,
+  changeSearchTerm,
+};

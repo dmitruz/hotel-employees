@@ -2,17 +2,26 @@ import './EmployeesForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeName, changeNumber, changeEmail, addEmployee } from '../store';
-import { changeGenderMale, changeGenderFemale } from '../store/slices/formSlice';
+import {
+  changeGender,
+  changeBirth,
+  changeDepartment,
+  changePosition,
+  changeStart,
+} from '../store/slices/formSlice';
 
 const EmployeesForm = () => {
   const dispatch = useDispatch();
-  const { name, number, email, genderMale, genderFemale } = useSelector(state => {
+  const { name, number, email, gender, birth, position, department, start } = useSelector(state => {
     return {
       name: state.form.name,
       number: state.form.number,
       email: state.form.email,
-      genderMale: state.form.genderMale,
-      genderFemale: state.form.genderFemale,
+      gender: state.form.gender,
+      birth: state.form.birth,
+      position: state.form.position,
+      department: state.form.department,
+      start: state.form.start,
     };
   });
 
@@ -29,21 +38,46 @@ const EmployeesForm = () => {
     dispatch(changeEmail(e.target.value));
   };
 
-  const handleGenderMaleChange = e => {
-    dispatch(changeGenderMale(e.target.value));
+  const handleGenderChange = e => {
+    dispatch(changeGender(e.target.value));
   };
-  const handleGenderFemaleChange = e => {
-    dispatch(changeGenderFemale(e.target.value));
+
+  const handleBirthChange = e => {
+    dispatch(changeBirth(e.target.value));
+  };
+  const handlePositionChange = e => {
+    dispatch(changePosition(e.target.value));
+  };
+  const handleDepartmentChange = e => {
+    dispatch(changeDepartment(e.target.value));
+  };
+  const handleStartChange = e => {
+    dispatch(changeStart(e.target.value));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addEmployee({ name, number, email, genderMale, genderFemale }));
+    dispatch(
+      addEmployee({
+        name,
+        number,
+        email,
+        gender,
+        birth,
+        position,
+        department,
+        start,
+      }),
+    );
+
     dispatch(changeName(''));
     dispatch(changeNumber(''));
     dispatch(changeEmail(''));
-    dispatch(changeGenderMale(''));
-    dispatch(changeGenderFemale(''));
+    dispatch(changeGender(''));
+    dispatch(changeBirth(''));
+    dispatch(changeDepartment(''));
+    dispatch(changePosition(''));
+    dispatch(changeStart(''));
   };
 
   return (
@@ -72,19 +106,21 @@ const EmployeesForm = () => {
               <label htmlFor="male">Male</label>
               <input
                 type="radio"
-                name="male"
-                value={genderMale}
-                onChange={handleGenderMaleChange}
+                name="gender"
+                value="Male"
                 id="male"
+                checked={gender === 'Male'}
+                onChange={handleGenderChange}
               />
 
               <label htmlFor="female">Female</label>
               <input
                 type="radio"
-                name="male"
-                value={genderFemale}
-                onChange={handleGenderFemaleChange}
+                name="gender"
+                value="Female"
                 id="female"
+                checked={gender === 'Female'}
+                onChange={handleGenderChange}
               />
             </div>
 
@@ -94,6 +130,8 @@ const EmployeesForm = () => {
                 <input
                   className="date-input"
                   type="date"
+                  value={birth}
+                  onChange={handleBirthChange}
                   id="date"
                   name="trip-date"
                   min="1923-01-01"
@@ -105,7 +143,12 @@ const EmployeesForm = () => {
             </div>
             <div className="field">
               <label className="label">Department</label>
-              <select name="department" id="department">
+              <select
+                name="department"
+                id="department"
+                value={department}
+                onSelect={handleDepartmentChange}
+              >
                 <option value="Front-office">Front-office</option>
                 <option value="Head-department">Head-department</option>
                 <option value="HR">HR-department</option>
@@ -117,13 +160,19 @@ const EmployeesForm = () => {
             </div>
             <div className="field">
               <label className="label">Position</label>
-              <input className="input is-expanded" />
+              <input
+                className="input is-expanded"
+                value={position}
+                onChange={handlePositionChange}
+              />
             </div>
             <div className="field">
               <label className="date__text" htmlFor="date">
                 Date of start
                 <input
                   className="date-input"
+                  value={start}
+                  onChange={handleStartChange}
                   type="date"
                   id="date"
                   name="trip-date"
@@ -143,5 +192,4 @@ const EmployeesForm = () => {
     </>
   );
 };
-
 export default EmployeesForm;
