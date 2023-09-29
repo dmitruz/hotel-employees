@@ -1,14 +1,17 @@
 import './EmployeesForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeName, changeNumber, changeEmail, addEmployee } from '../store';
 import {
+  changeName,
+  changeNumber,
+  changeEmail,
+  addEmployee,
   changeGender,
   changeBirth,
   changeDepartment,
   changePosition,
   changeStart,
-} from '../store/slices/formSlice';
+} from '../store';
 
 const EmployeesForm = () => {
   const dispatch = useDispatch();
@@ -103,7 +106,7 @@ const EmployeesForm = () => {
             </div>
             <div className="field__gender">
               <label className="label">Gender</label>
-              <label htmlFor="male">Male</label>
+
               <input
                 type="radio"
                 name="gender"
@@ -112,8 +115,8 @@ const EmployeesForm = () => {
                 checked={gender === 'Male'}
                 onChange={handleGenderChange}
               />
+              <label htmlFor="male">Male</label>
 
-              <label htmlFor="female">Female</label>
               <input
                 type="radio"
                 name="gender"
@@ -122,8 +125,8 @@ const EmployeesForm = () => {
                 checked={gender === 'Female'}
                 onChange={handleGenderChange}
               />
+              <label htmlFor="female">Female</label>
             </div>
-
             <div className="field">
               <label className="date__text" htmlFor="date">
                 Date of birth
@@ -147,7 +150,7 @@ const EmployeesForm = () => {
                 name="department"
                 id="department"
                 value={department}
-                onSelect={handleDepartmentChange}
+                onChange={handleDepartmentChange}
               >
                 <option value="Front-office">Front-office</option>
                 <option value="Head-department">Head-department</option>
@@ -168,14 +171,14 @@ const EmployeesForm = () => {
             </div>
             <div className="field">
               <label className="date__text" htmlFor="date">
-                Date of start
+                Start Date:
                 <input
                   className="date-input"
+                  type="date"
                   value={start}
                   onChange={handleStartChange}
-                  type="date"
-                  id="date"
-                  name="trip-date"
+                  id="date-start"
+                  name="start-date"
                   min="1923-01-01"
                   required
                   pattern="\d{4}-\d{2}-\d{2}"
