@@ -6,25 +6,27 @@ import {
   changeNumber,
   changeEmail,
   addEmployee,
-  changeGender,
+  changeGenderMale,
+  changeGenderFemale,
   changeBirth,
   changeDepartment,
   changePosition,
-  changeStart,
+  changeStartDate,
 } from '../store';
 
 const EmployeesForm = () => {
   const dispatch = useDispatch();
-  const { name, number, email, gender, birth, position, department, start } = useSelector(state => {
+  const { name, number, email, genderMale, genderFemale, birth, position, department, startDate } = useSelector(state => {
     return {
       name: state.form.name,
       number: state.form.number,
       email: state.form.email,
-      gender: state.form.gender,
+      genderMale: state.form.genderMale,
+      genderFemale: state.form.genderFemale,
       birth: state.form.birth,
       position: state.form.position,
       department: state.form.department,
-      start: state.form.start,
+      startDate: state.form.startDate,
     };
   });
 
@@ -41,8 +43,12 @@ const EmployeesForm = () => {
     dispatch(changeEmail(e.target.value));
   };
 
-  const handleGenderChange = e => {
-    dispatch(changeGender(e.target.value));
+  // const handleGenderMaleChange = e => {
+  //   dispatch(changeGenderMale(e.target.value));
+  // };
+
+  const handleGenderFemaleChange = e => {
+    dispatch(changeGenderFemale(e.target.value));
   };
 
   const handleBirthChange = e => {
@@ -54,8 +60,8 @@ const EmployeesForm = () => {
   const handleDepartmentChange = e => {
     dispatch(changeDepartment(e.target.value));
   };
-  const handleStartChange = e => {
-    dispatch(changeStart(e.target.value));
+  const handleStartDateChange = e => {
+    dispatch(changeStartDate(e.target.value));
   };
 
   const handleSubmit = e => {
@@ -65,22 +71,24 @@ const EmployeesForm = () => {
         name,
         number,
         email,
-        gender,
+        genderMale,
+        genderFemale,
         birth,
         position,
         department,
-        start,
+        startDate,
       }),
     );
 
     dispatch(changeName(''));
     dispatch(changeNumber(''));
     dispatch(changeEmail(''));
-    dispatch(changeGender(''));
+    dispatch(changeGenderMale(''));
+    dispatch(changeGenderFemale(''));
     dispatch(changeBirth(''));
     dispatch(changeDepartment(''));
     dispatch(changePosition(''));
-    dispatch(changeStart(''));
+    dispatch(changeStartDate(''));
   };
 
   return (
@@ -112,8 +120,8 @@ const EmployeesForm = () => {
                 name="gender"
                 value="Male"
                 id="male"
-                checked={gender === 'Male'}
-                onChange={handleGenderChange}
+                checked={genderMale === 'Male'}
+                onChange={handleGenderFemaleChange}
               />
               <label htmlFor="male">Male</label>
 
@@ -122,8 +130,8 @@ const EmployeesForm = () => {
                 name="gender"
                 value="Female"
                 id="female"
-                checked={gender === 'Female'}
-                onChange={handleGenderChange}
+                checked={genderFemale === 'Female'}
+                onChange={handleGenderFemaleChange}
               />
               <label htmlFor="female">Female</label>
             </div>
@@ -175,8 +183,8 @@ const EmployeesForm = () => {
                 <input
                   className="date-input"
                   type="date"
-                  value={start}
-                  onChange={handleStartChange}
+                  value={startDate}
+                  onChange={handleStartDateChange}
                   id="date-start"
                   name="start-date"
                   min="1923-01-01"

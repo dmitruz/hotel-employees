@@ -10,11 +10,12 @@ import {
   changeName,
   changeNumber,
   changeEmail,
-  changeGender,
+  changeGenderMale,
+  changeGenderFemale,
   changeBirth,
   changeDepartment,
   changePosition,
-  changeStart,
+  changeStartDate,
 } from './slices/formSlice';
 
 const store = configureStore({
@@ -30,10 +31,11 @@ export {
   changeNumber,
   changeEmail,
   changeBirth,
-  changeGender,
+  changeGenderMale,
+  changeGenderFemale,
   changePosition,
   changeDepartment,
-  changeStart,
+  changeStartDate,
   addEmployee,
   removeEmployee,
   changeSearchTerm,

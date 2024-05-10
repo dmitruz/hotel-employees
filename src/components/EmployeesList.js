@@ -27,11 +27,11 @@ const EmployeesList = () => {
         <p className="employee__data"> Name: &nbsp; {employee.name}</p>
         <p className="employee__data">Telephone: &nbsp;{employee.number}</p>
         <p className="employee__data">Email &nbsp; {employee.email}</p>
-        <p className="employee__data">Gender &nbsp; {employee.gender}</p>
+        <p className="employee__data">Gender &nbsp; {employee.genderFemale}</p>
         <p className="employee__data">Date of birth &nbsp; {employee.birth}</p>
         <p className="employee__data">Department &nbsp; {employee.department}</p>
         <p className="employee__data">Position &nbsp; {employee.position}</p>
-        <p className="employee__data">Start date:&nbsp; {employee.start}</p>
+        <p className="employee__data">Start date:&nbsp; {employee.startDate}</p>
         <button className="button__delete" onClick={() => handleEmployeeDelete(employee)}>
           Delete
         </button>
