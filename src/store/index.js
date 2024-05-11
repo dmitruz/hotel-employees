@@ -18,10 +18,15 @@ import {
   changeStartDate,
 } from './slices/formSlice';
 
+import {
+genderReducer
+} from './slices/genderSlice';
+
 const store = configureStore({
   reducer: {
     employees: employeesReducer,
     form: formReducer,
+    gender: genderReducer
   },
 });
 

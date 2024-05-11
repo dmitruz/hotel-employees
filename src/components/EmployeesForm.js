@@ -1,5 +1,8 @@
+
 import './EmployeesForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
+import { setGender, selectGender } from '../store/slices/genderSlice';
+
 
 import {
   changeName,
@@ -15,7 +18,13 @@ import {
 } from '../store';
 
 const EmployeesForm = () => {
+
   const dispatch = useDispatch();
+  const gender = useSelector(selectGender)
+  const handleGenderChange = (e) => {
+    dispatch(setGender(e.target.value));
+  };
+
   const { name, number, email, genderMale, genderFemale, birth, position, department, startDate } = useSelector(state => {
     return {
       name: state.form.name,
@@ -47,9 +56,9 @@ const EmployeesForm = () => {
   //   dispatch(changeGenderMale(e.target.value));
   // };
 
-  const handleGenderFemaleChange = e => {
-    dispatch(changeGenderFemale(e.target.value));
-  };
+  // const handleGenderFemaleChange = e => {
+  //   dispatch(changeGenderFemale(e.target.value));
+  // };
 
   const handleBirthChange = e => {
     dispatch(changeBirth(e.target.value));
@@ -117,21 +126,21 @@ const EmployeesForm = () => {
 
               <input
                 type="radio"
-                name="gender"
-                value="Male"
+
+                value="male"
                 id="male"
-                checked={genderMale === 'Male'}
-                onChange={handleGenderFemaleChange}
+                checked={gender === 'male'}
+                onChange={handleGenderChange}
               />
               <label htmlFor="male">Male</label>
 
               <input
                 type="radio"
-                name="gender"
-                value="Female"
-                id="female"
-                checked={genderFemale === 'Female'}
-                onChange={handleGenderFemaleChange}
+
+                value="female"
+
+                checked={gender === 'female'}
+                onChange={handleGenderChange}
               />
               <label htmlFor="female">Female</label>
             </div>
