@@ -19,14 +19,14 @@ import {
 } from './slices/formSlice';
 
 import {
-genderReducer
+setGender
 } from './slices/genderSlice';
 
 const store = configureStore({
   reducer: {
     employees: employeesReducer,
     form: formReducer,
-    gender: genderReducer
+    gender: setGender
   },
 });
 
@@ -44,4 +44,5 @@ export {
   addEmployee,
   removeEmployee,
   changeSearchTerm,
+  setGender
 };

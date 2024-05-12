@@ -25,17 +25,19 @@ const EmployeesForm = () => {
     dispatch(setGender(e.target.value));
   };
 
-  const { name, number, email, genderMale, genderFemale, birth, position, department, startDate } = useSelector(state => {
+  const { name, number, email, genderMale, genderFemale, birth, position, department, startDate, setGender } = useSelector(state => {
     return {
       name: state.form.name,
       number: state.form.number,
       email: state.form.email,
+      gender: state.form.setGender,
       genderMale: state.form.genderMale,
       genderFemale: state.form.genderFemale,
       birth: state.form.birth,
       position: state.form.position,
       department: state.form.department,
       startDate: state.form.startDate,
+
     };
   });
 
@@ -52,8 +54,8 @@ const EmployeesForm = () => {
     dispatch(changeEmail(e.target.value));
   };
 
-  // const handleGenderMaleChange = e => {
-  //   dispatch(changeGenderMale(e.target.value));
+  // const handleGenderChange = e => {
+  //   dispatch(setGender(e.target.value));
   // };
 
   // const handleGenderFemaleChange = e => {
@@ -80,6 +82,8 @@ const EmployeesForm = () => {
         name,
         number,
         email,
+        gender,
+        setGender,
         genderMale,
         genderFemale,
         birth,
@@ -98,6 +102,7 @@ const EmployeesForm = () => {
     dispatch(changeDepartment(''));
     dispatch(changePosition(''));
     dispatch(changeStartDate(''));
+    dispatch(setGender(''));
   };
 
   return (

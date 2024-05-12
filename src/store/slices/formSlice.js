@@ -13,6 +13,7 @@ const formSlice = createSlice({
     department: '',
     position: '',
     startDate: '',
+    gender: ''
   },
   reducers: {
     changeName(state, action) {
@@ -39,6 +40,9 @@ const formSlice = createSlice({
     changePosition(state, action) {
       state.position = action.payload;
     },
+    changeGender(state, action) {
+      state.gender = action.payload;
+    },
     changeStartDate(state, action) {
       state.startDate = action.payload;
     },
@@ -48,6 +52,7 @@ const formSlice = createSlice({
       state.name = '';
       state.number = '';
       state.email = '';
+      state.gender = '';
       state.genderMale = '';
       state.genderFemale = '';
       state.birth = '';
@@ -68,5 +73,6 @@ export const {
   changeDepartment,
   changePosition,
   changeStartDate,
+  changeGender,
 } = formSlice.actions;
 export const formReducer = formSlice.reducer;
