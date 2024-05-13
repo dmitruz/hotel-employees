@@ -25,15 +25,15 @@ const EmployeesList = () => {
 
     return (
       <div key={employee.id} className={`panel ${bold && 'bold'}`}>
-        <p className="employee__data"> Name: &nbsp; {employee.name}</p>
-        <p className="employee__data">Telephone: &nbsp;{employee.number}</p>
-        <p className="employee__data">Email &nbsp; {employee.email}</p>
-        <p className="employee__data">Date of birth &nbsp; {employee.birth}</p>
-        <p className="employee__data">Department &nbsp; {employee.department}</p>
-        <p className="employee__data">Position &nbsp; {employee.position}</p>
-        <p className="employee__data">Start date:&nbsp; {employee.startDate}</p>
+        <p className="employee__data"> <span className="employee__name">Name:</span> &nbsp; {employee.name}</p>
+        <p className="employee__data"><span className="employee__name">Telephone:</span> &nbsp;{employee.number}</p>
+        <p className="employee__data"><span className="employee__name">Email:</span> &nbsp; {employee.email}</p>
+        <p className="employee__data"><span className="employee__name">Date of birth:</span> &nbsp; {employee.birth}</p>
+        <p className="employee__data"><span className="employee__name">Department:</span> &nbsp; {employee.department}</p>
+        <p className="employee__data"><span className="employee__name">Position:</span> &nbsp; {employee.position}</p>
+        <p className="employee__data"><span className="employee__name">Start date:</span>&nbsp; {employee.startDate}</p>
         <button className="button__delete" onClick={() => handleEmployeeDelete(employee)}>
-          Delete
+          Delete employee
         </button>
       </div>
     );

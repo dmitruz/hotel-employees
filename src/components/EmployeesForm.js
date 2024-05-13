@@ -126,7 +126,7 @@ const EmployeesForm = () => {
             </div>
             <div className="field">
               <label className="label">Department</label>
-              <select
+              <select 
                 name="department"
                 id="department"
                 value={department}

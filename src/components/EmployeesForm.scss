@@ -1,70 +1,77 @@
-
-
 .employees__header-text {
-    font-family: 'Exo 2', sans-serif;
-    font-style: normal;
-    font-size: 40px;
+  color: blueviolet;
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-size: 40px;
 }
 
 .subtitle {
-    font-family: 'Exo 2', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    margin-left: 20px;
-}
-.form__panel {
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    align-items:flex-start;
-    border: 1px solid black;
-    margin-top: 15px;
-   
-    width: 700px;
-    background-color: wheat;
-    
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  margin-left: 20px;
 }
 
+.form__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 15px;
+  background-color: wheat;
+
+}
+
+.panel {
+  border-radius: 4px;
+  font-weight: 600;
+}
 
 
 .field__group {
-    display: flex;
-    flex-direction: column;
-    margin: 4px;
-    padding: 6px;
-    margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  margin: 4px;
+  padding: 6px;
+  margin-left: 16px;
 }
 
-.label  {
-    font-family: 'Exo 2', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    width: 70px;
-    margin-right: 10px;
-    
+.label {
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  width: 70px;
+  margin-right: 10px;
+
 }
 
 .field {
-    display: flex;
-    flex-direction: column;
-    align-items:flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .field__gender {
-    display:block;
+  display: block;
 }
+
 .form__submit-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-        
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 input {
-    background-color:aliceblue;
+  background-color: aliceblue;
+  font-style: italic;
+  font-weight: 600;
+  padding-left: 10px;
 }
 
 span::after {
@@ -72,22 +79,43 @@ span::after {
 }
 
 .date-input {
-    margin-left: 10px;
-  &:invalid + span::after {
+  margin-left: 10px;
+  font-style: normal;
+
+  &:invalid+span::after {
     content: "✖";
   }
 
-  &:valid + span::after {
+  &:valid+span::after {
     content: "✓";
   }
 }
+
 select {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .date__text {
-    font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: antiquewhite;
+    color: black;
+    font-weight: 700;
+  }
+
 }
