@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hotel-employees/static/css/main.271176c5.css",
+    "main.js": "/hotel-employees/static/js/main.406e2202.js",
+    "index.html": "/hotel-employees/index.html",
+    "main.271176c5.css.map": "/hotel-employees/static/css/main.271176c5.css.map",
+    "main.406e2202.js.map": "/hotel-employees/static/js/main.406e2202.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.271176c5.css",
+    "static/js/main.406e2202.js"
+  ]
+}
