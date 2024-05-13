@@ -1,7 +1,7 @@
 
 import './EmployeesForm.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGender, selectGender } from '../store/slices/genderSlice';
+
 
 
 import {
@@ -9,8 +9,6 @@ import {
   changeNumber,
   changeEmail,
   addEmployee,
-  changeGenderMale,
-  changeGenderFemale,
   changeBirth,
   changeDepartment,
   changePosition,
@@ -18,21 +16,13 @@ import {
 } from '../store';
 
 const EmployeesForm = () => {
+  const dispatch = useDispatch()
 
-  const dispatch = useDispatch();
-  const gender = useSelector(selectGender)
-  const handleGenderChange = (e) => {
-    dispatch(setGender(e.target.value));
-  };
-
-  const { name, number, email, genderMale, genderFemale, birth, position, department, startDate, setGender } = useSelector(state => {
+  const { name, number, email, birth, position, department, startDate, } = useSelector(state => {
     return {
       name: state.form.name,
       number: state.form.number,
       email: state.form.email,
-      gender: state.form.setGender,
-      genderMale: state.form.genderMale,
-      genderFemale: state.form.genderFemale,
       birth: state.form.birth,
       position: state.form.position,
       department: state.form.department,
@@ -54,13 +44,6 @@ const EmployeesForm = () => {
     dispatch(changeEmail(e.target.value));
   };
 
-  // const handleGenderChange = e => {
-  //   dispatch(setGender(e.target.value));
-  // };
-
-  // const handleGenderFemaleChange = e => {
-  //   dispatch(changeGenderFemale(e.target.value));
-  // };
 
   const handleBirthChange = e => {
     dispatch(changeBirth(e.target.value));
@@ -82,10 +65,6 @@ const EmployeesForm = () => {
         name,
         number,
         email,
-        gender,
-        setGender,
-        genderMale,
-        genderFemale,
         birth,
         position,
         department,
@@ -96,13 +75,10 @@ const EmployeesForm = () => {
     dispatch(changeName(''));
     dispatch(changeNumber(''));
     dispatch(changeEmail(''));
-    dispatch(changeGenderMale(''));
-    dispatch(changeGenderFemale(''));
     dispatch(changeBirth(''));
     dispatch(changeDepartment(''));
     dispatch(changePosition(''));
     dispatch(changeStartDate(''));
-    dispatch(setGender(''));
   };
 
   return (
@@ -124,31 +100,13 @@ const EmployeesForm = () => {
             </div>
             <div className="field">
               <label className="label">Email</label>
-              <input className="input is-expanded" value={email} onChange={handleEmailChange} />
-            </div>
-            <div className="field__gender">
-              <label className="label">Gender</label>
-
-              <input
-                type="radio"
-
-                value="male"
-                id="male"
-                checked={gender === 'male'}
-                onChange={handleGenderChange}
+              <input className="input is-expanded" value={email} onChange={handleEmailChange}
+              required
+              pattern='^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$'
               />
-              <label htmlFor="male">Male</label>
-
-              <input
-                type="radio"
-
-                value="female"
-
-                checked={gender === 'female'}
-                onChange={handleGenderChange}
-              />
-              <label htmlFor="female">Female</label>
             </div>
+
+
             <div className="field">
               <label className="date__text" htmlFor="date">
                 Date of birth
